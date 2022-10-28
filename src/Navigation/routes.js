@@ -11,7 +11,8 @@ const Routes = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName= {NavigationStrings.HOME}
-            screenOptions={{ headerShown: false }}>
+            // screenOptions={{ headerShown: false }}
+            >
                 <Stack.Screen name= {NavigationStrings.HOME} component={Screens.Home}/>
                 <Stack.Screen name= {NavigationStrings.SECOND_SCREEN} component={Screens.SecondScreen}/>
             </Stack.Navigator>            
