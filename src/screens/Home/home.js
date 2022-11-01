@@ -10,6 +10,13 @@ const Home = ({ navigation, route }) => {
     const myData = useSelector(data=> data.myData)
 
     // console.log(myData,"myDatatatattas")
+    let itemlength = 0
+
+    for(let i=0;i<myData.length;i++){
+        if(myData[i].quantity>0){
+            itemlength=itemlength+1
+        }
+    }
 
     const onInc = (item)=>{
         store.dispatch(increment(item.quantity,item._id))
@@ -17,6 +24,7 @@ const Home = ({ navigation, route }) => {
     const onDec = (item) =>{
         store.dispatch(decrement(item.quantity,item._id))
     }
+
 
 
     const renderItem = ({ item, index }) => {
@@ -66,6 +74,8 @@ const Home = ({ navigation, route }) => {
                     ItemSeparatorComponent={() => <View style={{ marginBottom: 16 }} />}
                 />
             </View>
+
+            <Text >counter: {itemlength}</Text>
         </SafeAreaView>
     );
 };
