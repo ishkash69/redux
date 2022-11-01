@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         padding: 8,
         borderRadius: 8,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        flex:1
     },
     container: {
         flex: 1,
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     },
     addBtnStyle: {
         marginLeft: 16,
-        backgroundColor: colors.red,
+        backgroundColor: colors.black,
         height: 40,
         width: 40,
         borderRadius: 20,

@@ -1,15 +1,58 @@
 
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Text, View ,TouchableOpacity} from 'react-native';
+import { useSelector } from 'react-redux';
+import { decrement, increment } from '../../redux/actions';
+import store from '../../redux/store';
 import styles from './secondScreen.style';
 
-const SecondScreen = () => {
+
+
+const SecondScreen = ({navigation,route}) => {
+    const itemData = route.params
+    console.log("data data datadta",itemData)
+
+    const myData = useSelector(state=> state.myData)
+    console.log(myData,"===___+_+_+_+_+")
+
+    let index = myData.findIndex(itemId=>itemId._id==itemData._id)
+    console.log(index,"indexindexindexindex")
+    let newVal = myData[index]
+
+    const onInc = (data)=>{
+        store.dispatch(increment(data.quantity,data._id))
+        
+    }
+    const onDec = (data) =>{
+        store.dispatch(decrement(data.quantity,data._id))
+    }
     return (
         <View style={styles.container}>
-            <Text>SecondScreen
+            <View style={styles.flatStyle}>
+                <View>
+                    <Text>{itemData.title}</Text>
+                    <Text>{itemData.desc}</Text>
+                </View>
+                <View style={styles.cart}>
+                    <TouchableOpacity
+                    onPress={()=>{
+                        onDec(newVal)
+                    }}                    >
+                        <Text style={styles.txtStyle}>-</Text>
+                    </TouchableOpacity>
+                    <Text style={styles.txtStyle}>{newVal.quantity}</Text>
+                    <TouchableOpacity
+                    onPress={()=>{
+                        onInc(newVal)
+                    }}
+                    >
+                        <Text style={styles.txtStyle}>+</Text>
+                    </TouchableOpacity>
+                    </View>
+                   
             
-        
-            </Text>
+                    </View>
+            
         </View>
     );
 };

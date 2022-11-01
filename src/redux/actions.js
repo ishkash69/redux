@@ -1,14 +1,18 @@
 import  types  from './types'
 
-export function increment(data){
+export function increment(data,_id){
     return{
         type: types.INCREMENT,
-        payload: data
+        payload: {quantity: data,
+            _id: _id
+        }
     }
 }
-export function decrement(data){
+export function decrement(data,_id){
     return{
         type: types.DECREMENT,
-        payload: data
+        payload: {quantity: data,
+            _id: _id
+        }
     }
 }
