@@ -1,5 +1,6 @@
 
-import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useEffect } from 'react';
 import { FlatList, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import NavigationStrings from '../../constant/NavigationStrings';
@@ -7,6 +8,8 @@ import { decrement, increment } from '../../redux/actions';
 import store from '../../redux/store';
 import styles from './home.style';
 const Home = ({ navigation, route }) => {
+  
+    
     const myData = useSelector(data=> data.myData)
 
     // console.log(myData,"myDatatatattas")
@@ -24,6 +27,10 @@ const Home = ({ navigation, route }) => {
     const onDec = (item) =>{
         store.dispatch(decrement(item.quantity,item._id))
     }
+   
+     
+
+    
 
 
 
@@ -41,6 +48,8 @@ const Home = ({ navigation, route }) => {
                     <TouchableOpacity
                     onPress={()=>{
                         onDec(item)
+                       
+                  
                     }}                    >
                         <Text style={styles.txtStyle}>-</Text>
                     </TouchableOpacity>
@@ -48,6 +57,7 @@ const Home = ({ navigation, route }) => {
                     <TouchableOpacity
                     onPress={()=>{
                         onInc(item)
+                       
                     }}
                     >
                         <Text style={styles.txtStyle}>+</Text>

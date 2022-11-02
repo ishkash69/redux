@@ -5,8 +5,8 @@ import * as Screens from '../screens'
 import {NavigationContainer} from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NavigationStrings from '../constant/NavigationStrings';
+// const homeStack = createNativeStackNavigator();
 const Stack = createNativeStackNavigator();
-
 const Routes = () => {
     return (
         <NavigationContainer>
@@ -16,10 +16,9 @@ const Routes = () => {
                 <Stack.Screen name= {NavigationStrings.HOME} component={Screens.Home}/>
                 <Stack.Screen name= {NavigationStrings.SECOND_SCREEN} component={Screens.SecondScreen}/>
             </Stack.Navigator>            
-        </NavigationContainer>
+         </NavigationContainer>
     );
 };
-
 
 
 export default Routes;

@@ -16,3 +16,9 @@ export function decrement(data,_id){
         }
     }
 }
+export function storedData(data){
+    return{
+        type:types.STORED_DATA,
+        payload:data
+    }
+}
